@@ -3,5 +3,14 @@ Opengl-1.0-using-JOGL:
  This is a Java application which contains a simple graphics rendering using OpenGL 1.0 (immediate mode) using JOGL wrapper for Java.
  To test this application, you must import the project into Eclipse IDE.
  
+ Steps to compile and running it:
+ =================================
+ 1.Download the repository(zip file).
+ 2.Import it into Eclipse IDE.
+ 3.Add the "lib" folder(contains 2 jar and 4 dll files) to the project's build path.
+ 	a.)Add the two jar files to build path.
+ 	b.)Then,add the 4 dll files as a native library to each jar file.
+ 4.Compile the project. 	
+ 
 
   
