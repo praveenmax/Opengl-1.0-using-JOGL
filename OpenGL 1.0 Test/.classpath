@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="Camera/cyCam_xy.java|Camera/cyCam_xz.java|Camera/cyCam_yz.java|Camera/cylCam.java" kind="src" path="src"/>
+	<classpathentry excluding="Camera/cyCam_xy.java|Camera/cyCam_xz.java|Camera/cyCam_yz.java|Camera/cylCam.java|libs/" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jogl">
+	<classpathentry kind="lib" path="libs/gluegen-rt.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="F:/softwares/jogl-1.1.1a-windows-i586/jogl-1.1.1-windows-i586/lib"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="OpenGL 1.0 using JOGL/libs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/jogl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="OpenGL 1.0 using JOGL/libs"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
