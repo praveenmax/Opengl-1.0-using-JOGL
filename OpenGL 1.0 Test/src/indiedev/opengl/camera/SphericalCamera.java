@@ -1,8 +1,8 @@
-package Camera;
+package indiedev.opengl.camera;
 
 import javax.media.opengl.GL;
 
-public class sphericalCam extends AbstractCamera 
+public class SphericalCamera extends AbstractCamera 
 {
 	/*
 	 * Camera stages:-
@@ -14,15 +14,13 @@ public class sphericalCam extends AbstractCamera
 	 float x_angle=90f;
 	 float y_angle=90f;
 	 
-	public sphericalCam() 
+	public SphericalCamera() 
 	{
 		cam_type="Spherical";
 		cam_radius=4f;//default radius
 		cam_x=0;
 		cam_y=0;
 		cam_z=cam_radius;
-		
-		
 	}
 	
 	public void moveCam(float temp_x,float temp_y)
@@ -77,6 +75,7 @@ public class sphericalCam extends AbstractCamera
 			System.out.println("cam radius:"+cam_radius);
 		}
 	}
+	
 	public void drawCamPath(GL gl)
 	{
 		/*
@@ -105,13 +104,8 @@ public class sphericalCam extends AbstractCamera
 					
 					gl.glColor3f(1f,1f,1f);
 					gl.glVertex3f(x,y,z);
-								
 				}
-				
 			}
-			
-		
 		gl.glEnd();
-	
 	}
 }

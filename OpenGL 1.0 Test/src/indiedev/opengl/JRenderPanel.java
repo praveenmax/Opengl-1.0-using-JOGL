@@ -1,38 +1,36 @@
+package indiedev.opengl;
+
+import indiedev.opengl.camera.AbstractCamera;
+import indiedev.opengl.camera.SphericalCamera;
+import indiedev.opengl.util.*;
 
 import javax.media.opengl.*;
 
-import objects.*;
 import javax.media.opengl.glu.*;
 import java.awt.*;
 import java.io.IOException;
 
-import Camera.AbstractCamera;
-import Camera.sphericalCam;
 
 import com.sun.opengl.util.FPSAnimator;
 
-import wireframe.Mywireframe;
-final class gljpanel2 extends GLJPanel implements GLEventListener
+public final class JRenderPanel extends GLJPanel implements GLEventListener
 {
-	//temp stufffs
-//	float x=0f,y=0f;
-	//Render looper
+	//Render loop
 	FPSAnimator fpsanim;
 	GLU glu;
 	//camera class
 	AbstractCamera main_cam;
 	//wireframe
-	Mywireframe wf;
+	WireFrame wf;
 	//objects
-	Obj_primitives obj_sphere;
-	gljpanel2()
+	Object_primitives obj_sphere;
+	JRenderPanel()
 	{
 		//other classes
-		main_cam=new sphericalCam();
+		main_cam=new SphericalCamera();
 		
 		//pre-display set-up
-		wf=new Mywireframe(10,10);
-		
+		wf=new WireFrame(10,10);
 		
 		addGLEventListener(this);
 		setPreferredSize(new Dimension(800,600));
@@ -71,7 +69,7 @@ final class gljpanel2 extends GLJPanel implements GLEventListener
 		main_cam.setCam(gl, glu, this);
 		
 		try {
-			obj_sphere=new Obj_primitives();
+			obj_sphere=new Object_primitives();
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -88,24 +86,13 @@ final class gljpanel2 extends GLJPanel implements GLEventListener
 		gl.glClear(GL.GL_COLOR_BUFFER_BIT|GL.GL_DEPTH_BUFFER_BIT);
 
 		main_cam.refreshCam_Pos(glu,gl);
-		//glu.gluLookAt(x+=0.5f,y+=0.5f,0f,0,0,0,0,1,0);
+		
 		//drawing the wire-frame
 		wf.wire_xy(gl);
 		//DEFAULT	wf.wire_xz(gl);
 		wf.wire_yz(gl);
 		wf.wire_xz(gl);
-//		gl.glColor3f(1f,1f,1f);
-//		gl.glBegin(GL.GL_LINES);
-//			gl.glColor3f(1f,1f,0f);
-//			
-//			gl.glVertex3f(0f,0f,0f);
-//			gl.glVertex3f(5f,0f,0f);
-//			
-//			gl.glColor3f(1,1,1);
-//			gl.glVertex3f(0,0,0);
-//			gl.glVertex3f(2,0,0);
-//		gl.glEnd();
-		
+	
 		//drawing objects
 		gl.glColor3f(1,1,1);
 		obj_sphere.drawObjects(gl, glu);
@@ -117,14 +104,10 @@ final class gljpanel2 extends GLJPanel implements GLEventListener
 	
 	public void origin_point(final GL gl)
 	{
-		
 		gl.glColor3f(1f,0f,0f);
 		gl.glBegin(GL.GL_POINTS);
 			gl.glVertex3f(0f,0f,0f);
 		gl.glEnd();
-		
-		
-		
 	}
 	
 	public void displayChanged(final GLAutoDrawable drawable, final boolean modeChanged,
@@ -135,6 +118,7 @@ final class gljpanel2 extends GLJPanel implements GLEventListener
 			final int height) {
 		
 	}
+	
 	//used to set a new camera when needed
 	public void setCurrentCam(final AbstractCamera temp_cam)
 	{

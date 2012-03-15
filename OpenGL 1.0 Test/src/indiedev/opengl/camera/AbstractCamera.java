@@ -1,4 +1,4 @@
-package Camera;
+package indiedev.opengl.camera;
 import javax.media.opengl.*;
 import javax.media.opengl.glu.*;
 public abstract class AbstractCamera 
@@ -10,6 +10,7 @@ public abstract class AbstractCamera
 	 float cam_radius;
 	 float cam_radian;
 	 String cam_type="none";
+	 
 	/*
 	 * Sets the camera view and gluLookAt parameters 
 	 */
@@ -34,10 +35,6 @@ public abstract class AbstractCamera
 		System.out.println("Camera set-up complete(x,y,z)"+cam_x+","+cam_y+","+cam_z);
 		
 	}
-	/*
-	 * changes cam position by changing its angle->x,y
-	 */
-	
 
 	public void refreshCam_Pos(GLU glu,GL gl)
 	{
@@ -52,27 +49,34 @@ public abstract class AbstractCamera
 	{
 		return cam_type;
 	}
+	
 	public void moveCam()
 	{
 		System.out.println("Method doesnt exist for this camera:"+this.getCamType());
 	}
+	
 	public void moveCam(float temp_x,float temp_y)
 	{
 		System.out.println("For sphere only");
 	}
+	
 	public void zoomCam(float temp_z)
 	{
 		System.out.println("For sphere only");
 	}
+	
 	public abstract void drawCamPath(GL gl);
+	
 	public float getCam_xpos()
 	{
 		return this.cam_x; 
 	}
+	
 	public float getCam_ypos()
 	{
 		return this.cam_y;
 	}
+	
 	public float getCam_zpos()
 	{
 		return this.cam_z;

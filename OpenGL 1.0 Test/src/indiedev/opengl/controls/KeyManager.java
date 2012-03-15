@@ -1,11 +1,12 @@
+package indiedev.opengl.controls;
 
-
+import indiedev.opengl.JRenderPanel;
+import indiedev.opengl.camera.AbstractCamera;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JOptionPane;
 
-import Camera.AbstractCamera;
 /*
  * Camera controls:-
  * ------------------
@@ -23,23 +24,20 @@ import Camera.AbstractCamera;
  *LR-change y-angle
  *
  */
-public class keyb implements KeyListener
+public class KeyManager implements KeyListener
 {
 	AbstractCamera temp_cam;
-	gljpanel2 currpanel;
+	JRenderPanel currpanel;
 	//gets the current thru base_frame
-	public keyb(gljpanel2 panel)
+	public KeyManager(JRenderPanel panel)
 	{
 		currpanel=panel;
 	}
-
-	
 
 	public void keyPressed(KeyEvent e) 
 	{
 		//gets the current camera from the gljpanel
 		temp_cam=currpanel.getCurrentCam();
-		
 		
 		if(temp_cam.getCamType().equals("cyCam_xz") || temp_cam.getCamType().equals("cyCam_yz"))
 		{
@@ -94,7 +92,6 @@ public class keyb implements KeyListener
 				JOptionPane.showMessageDialog(null, "Controls:\n---------------\n"+"Arrow keys : Movement.\n"+"A,Z : Zoom IN/OUT.");
 				break;
 			}
-			
 		}
 		//System.out.println("Current cam:"+temp_cam.getCamType());
 	}
